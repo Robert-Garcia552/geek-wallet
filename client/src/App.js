@@ -1,12 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
-import './styles/index.scss';
+import HomeComponent from './components/HomeComponent';
 
 function App() {
   return (
-    <div className="header">
-      <p>TEST</p>
-    </div>
+    <HomeComponent/>
   );
 }
 
