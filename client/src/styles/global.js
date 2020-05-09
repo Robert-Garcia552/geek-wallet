@@ -1,7 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
 
+const breakpoints = {
+  med: '740px'
+}
+
 export default createGlobalStyle`
-  @import url('<https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap>');
   
   * {
     margin: 0;
@@ -33,12 +36,13 @@ export default createGlobalStyle`
   button {
     cursor: pointer;
   }
-
-
+// Containers
   .flex-container {
     display: flex;
     justify-content: space-around;
   }
+
+// Navbar
   .navbar {
     text-align: center;
     width: 100%;
@@ -49,6 +53,11 @@ export default createGlobalStyle`
   }
   .nav-link {
     padding: 20px;
+    display: none;
+
+    @media (min-width: ${breakpoints.med}) {
+      display: block;
+    }
   }
   .nav-logo {
     height: 40px;
@@ -61,6 +70,23 @@ export default createGlobalStyle`
     margin: auto;
     padding: 10px;
   }
+  .fa-bars {
+    color: #008255;
+    margin: auto;
+    padding-right: 10px;
+
+    @media (min-width: ${breakpoints.med}) {
+      display: none;
+    }
+  }
+  .drawer {
+    width: 250px;
+
+    .fas {
+      color: #A9CFF5;
+    }
+  }
+// Buttons
   .primary-btn {
     background: #008255;
     padding: 10px;
