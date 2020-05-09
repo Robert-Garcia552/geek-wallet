@@ -1,9 +1,13 @@
 import React from 'react';
+import GlobalStyles from './styles/global';
 import HomeComponent from './components/HomeComponent';
 
 function App() {
   return (
-    <HomeComponent/>
+    <div>
+      <HomeComponent/>
+      <GlobalStyles />
+    </div>
   );
 }
 
