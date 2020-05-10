@@ -9,7 +9,6 @@ function App() {
   return (
     <Router>
       <Navbar/>
-      <br/>
       <Route path='/' exact component={HomeComponent} />
       <Route path='/about' component={AboutComponent} />
       <GlobalStyles />
