@@ -1,5 +1,5 @@
 {
-  "name": "geek-wallet",
+  "name": "geek-wallet-backend",
   "version": 2,
   "env": {
     "MONGODB_URI": "@atlas_uri"
