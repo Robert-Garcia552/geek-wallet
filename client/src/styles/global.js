@@ -138,11 +138,18 @@ export default createGlobalStyle`
   .details-text {
     @media (min-width: ${breakpoints.med}) {
       width: 40%;
+      margin: auto 0;
     }
 
     & > * {
       padding-top: 16px;
     }
+  }
+
+  hr {
+    border-top: .5px solid black;
+    margin-top: 10px;
+    padding: 5px;
   }
 
   .fa-ul {

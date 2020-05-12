@@ -17,17 +17,18 @@ export default class AccordionComponent extends Component {
 
   render() {
     return(
-      <ul className='accordion'>
+      <ul className='accordion fa-ul'>
         {this.props.listItems.map((item, index) => (
-          <div key={index} className='fa-ul'>
-            <li className='list-items' onClick={() => this.toggleExpand(index)}>
+          <>
+            <li className='list-items' key={index} onClick={() => this.toggleExpand(index)}>
               {item.header}
               <span class='fa-li'>
                 <i class={`fas fa-${this.state.active[index] ? 'chevron-up' : 'chevron-down'}`}></i>
               </span>
             </li>
             <p className={this.state.active[index] ? 'show' : 'hide'}>{item.detail}</p>
-          </div>
+            <hr></hr>
+          </>
         ))}
       </ul>
     )
