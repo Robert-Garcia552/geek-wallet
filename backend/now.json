@@ -1,7 +1,13 @@
 {
-  "name": "my-mongodb-api",
+  "name": "geek-wallet",
   "version": 2,
   "env": {
     "MONGODB_URI": "@atlas_uri"
-  }
+  },
+  "builds": [
+    {
+      "src": "*.js",
+      "use": "@now/node-server"
+    }
+  ]
 }
