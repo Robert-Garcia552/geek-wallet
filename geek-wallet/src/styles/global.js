@@ -4,6 +4,10 @@ const breakpoints = {
   med: '740px'
 }
 
+const colors = {
+  blue: '#074a76'
+}
+
 export default createGlobalStyle`
   
   * {
@@ -54,8 +58,38 @@ export default createGlobalStyle`
   }
 
   .blue-background {
-    background: #1763FD;
+    background: ${colors.blue};
     color: #ffffff;
+  }
+
+  .green-background {
+    background: #e3f9f1;
+  }
+
+  .cards {
+    justify-content: center;
+  }
+
+  .card {
+    text-align: left;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    @media (min-width: ${breakpoints.med}) {
+      padding: 130px 30px;
+    }
+
+    .card-header {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .card-text {
+      font-size: 16px;
+    }
   }
 
   .list-items {
@@ -170,6 +204,15 @@ export default createGlobalStyle`
     & a:link, & a:visited, & a:hover, & a:active {
       text-decoration: none;
       color: #ffffff;
+    }
+  }
+
+  footer {
+    padding: 20px;
+    margin-top: 10px;
+  
+    & > p {
+      text-align: center;
     }
   }
 `;

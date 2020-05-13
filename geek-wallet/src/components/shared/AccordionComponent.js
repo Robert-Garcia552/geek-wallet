@@ -27,7 +27,7 @@ export default class AccordionComponent extends Component {
               </span>
             </li>
             <p className={this.state.active[index] ? 'show' : 'hide'}>{item.detail}</p>
-            <hr></hr>
+            <hr/>
           </>
         ))}
       </ul>
