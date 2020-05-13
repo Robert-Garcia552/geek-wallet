@@ -28,6 +28,10 @@ const SignUp = styled.form`
   }
 `;
 
+const FormDiv = styled.div`
+  margin: auto 0;
+`
+
 export default class SignUpComponent extends Component {
   constructor() {
     super();
@@ -54,7 +58,7 @@ export default class SignUpComponent extends Component {
           <p className='sub-header'>Let's leave the green where it should be</p>
           <img src={wallet} className='wallet' alt='wallet'/>
         </div>
-        <div>
+        <FormDiv>
           <SignUp action='http://localhost:5000/users/add' method='post'>
             <label for='name'>Name</label>
             <input type='text' id='name' name='name' value={this.state.name} onChange={this.handleInput} required />
@@ -69,7 +73,7 @@ export default class SignUpComponent extends Component {
             />
           </SignUp>
           <a href='/'>Already Have an Account? Sign In</a>
-        </div>
+        </FormDiv>
       </div>
     )
   }

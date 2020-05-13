@@ -5,6 +5,7 @@ import Navbar from './components/NavbarComponent';
 import HomeComponent from './components/HomeComponent';
 import AboutComponent from './components/AboutComponent';
 import SignUpComponent from './components/SignUpComponent';
+import FooterComponent from './components/FooterComponent';
 
 function App() {
   return (
@@ -14,9 +15,7 @@ function App() {
       <Route path='/about' component={AboutComponent} />
       <Route path='/sign-up' component={SignUpComponent} />
       <GlobalStyles />
-      <footer className='blue-background'>
-        <p>Copyright © {new Date().getFullYear()} | Robert Garcia</p>
-      </footer>
+      <FooterComponent/>
     </Router>
   );
 }

@@ -1,12 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-
-const breakpoints = {
-  med: '740px'
-}
-
-const colors = {
-  blue: '#074a76'
-}
+import { breakpoints, colors } from './utils.js';
 
 export default createGlobalStyle`
   
@@ -40,6 +33,30 @@ export default createGlobalStyle`
   button {
     cursor: pointer;
   }
+
+  #root {
+    padding-bottom: 60px;
+  }
+
+  phantom {
+    display: 'block',
+    padding: '20px',
+    height: '60px',
+    width: '100%',
+  }
+
+  footer {
+    padding: 20px;
+    margin-top: 10px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  
+    & > p {
+      text-align: center;
+    }
+  }
 // Containers
   .flex-container {
     display: flex;
@@ -59,11 +76,11 @@ export default createGlobalStyle`
 
   .blue-background {
     background: ${colors.blue};
-    color: #ffffff;
+    color: ${colors.white};
   }
 
   .green-background {
-    background: #e3f9f1;
+    background: ${colors.green};
   }
 
   .cards {
@@ -77,7 +94,7 @@ export default createGlobalStyle`
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
-    @media (min-width: ${breakpoints.med}) {
+    @media ${breakpoints.md} {
       padding: 130px 30px;
     }
 
@@ -109,7 +126,7 @@ export default createGlobalStyle`
     padding: 20px;
     display: none;
 
-    @media (min-width: ${breakpoints.med}) {
+    @media ${breakpoints.med} {
       display: block;
     }
   }
@@ -129,10 +146,11 @@ export default createGlobalStyle`
     margin: auto;
     padding-right: 10px;
 
-    @media (min-width: ${breakpoints.med}) {
+    @media ${breakpoints.med} {
       display: none;
     }
   }
+
   .drawer {
     width: 250px;
 
@@ -170,7 +188,7 @@ export default createGlobalStyle`
   }
 
   .details-text {
-    @media (min-width: ${breakpoints.med}) {
+    @media ${breakpoints.med} {
       width: 40%;
       margin: auto 0;
     }
@@ -209,14 +227,5 @@ export default createGlobalStyle`
     height: 200px;
     width: 300px;
     border-radius: 50px;
-  }
-
-  footer {
-    padding: 20px;
-    margin-top: 10px;
-  
-    & > p {
-      text-align: center;
-    }
   }
 `;
