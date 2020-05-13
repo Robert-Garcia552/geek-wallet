@@ -1,6 +1,32 @@
 import React, { Component } from 'react';
 import wallet from '../assets/wallet.jpg';
-import Button from './shared/ButtonComponent';
+import PrimaryButton from './shared/PrimaryButtonComponent';
+import styled from 'styled-components';
+
+const SignUp = styled.form`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  justify-items: center;
+
+  @media (min-width: 740px) {
+    grid-template-columns: .5fr 1fr;
+    column-gap: 0;
+  }
+
+  input {
+    border-bottom: 1px solid gray;
+    width: 300px;
+    margin-top: auto;
+    padding-bottom: 2px;
+  }
+
+  label {
+    margin-top: auto;
+    text-align: left;
+    width: 100%;
+  }
+`;
 
 export default class SignUpComponent extends Component {
   constructor() {
@@ -29,7 +55,7 @@ export default class SignUpComponent extends Component {
           <img src={wallet} className='wallet' alt='wallet'/>
         </div>
         <div>
-          <form id='contact' action='http://localhost:5000/users/add' method='post'>
+          <SignUp action='http://localhost:5000/users/add' method='post'>
             <label for='name'>Name</label>
             <input type='text' id='name' name='name' value={this.state.name} onChange={this.handleInput} required />
             <label for='email'>Email</label>
@@ -38,10 +64,10 @@ export default class SignUpComponent extends Component {
             <input type='date' id='birthdate' name='birthdate' value={this.state.birthdate} onChange={this.handleInput} required />
             <label for='password'>Password</label>
             <input type='password' id='password' name='password' onChange={this.handleInput} required />
-            <Button
+            <PrimaryButton
               text='Submit'
             />
-          </form>
+          </SignUp>
           <a href='/'>Already Have an Account? Sign In</a>
         </div>
       </div>

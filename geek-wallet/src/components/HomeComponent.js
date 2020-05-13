@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Button from './shared/ButtonComponent';
+import PrimaryButton from './shared/PrimaryButtonComponent';
 import Accordion from './shared/AccordionComponent';
 
 export default class HomeComponent extends Component {
@@ -10,7 +10,7 @@ export default class HomeComponent extends Component {
         <div className='container blue-background'>
           <h2 className='header'>Make Smart Decisions With Your Wallet</h2>
           <p className='sub-header'>Valuable information aimed to help you become a financial geek. Articles coming soon.</p>
-          <Button 
+          <PrimaryButton 
             text='Get Started'
             href='/sign-up'
           />
