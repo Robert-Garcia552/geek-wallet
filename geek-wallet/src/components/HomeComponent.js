@@ -11,8 +11,8 @@ export default class HomeComponent extends Component {
           <h2 className='header'>Make Smart Decisions With Your Wallet</h2>
           <p className='sub-header'>Valuable information aimed to help you become a financial geek. Articles coming soon.</p>
           <Button 
-            btnText='Get Started'
-            href=''
+            text='Get Started'
+            href='/sign-up'
           />
         </div>
         <div className='flex-container details'>
@@ -42,9 +42,6 @@ export default class HomeComponent extends Component {
             <p className='card-text'>Wondering "Will another outing break my budget?"</p>
           </div>
         </div>
-        <footer className='blue-background'>
-          <p>Copyright © {new Date().getFullYear()}</p>
-        </footer>
       </div>
     )
   }

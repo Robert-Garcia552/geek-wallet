@@ -195,11 +195,53 @@ export default createGlobalStyle`
     right: 0;
   }
 
-// Buttons
+  // Sign Up
+  .sign-up {
+    padding: 20px;
+    text-align: center;
+
+    & > * {
+      margin-bottom: 16px;
+    }
+  }
+
+  .wallet {
+    height: 200px;
+    width: 300px;
+    border-radius: 50px;
+  }
+
+  #contact {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    justify-items: center;
+
+    @media (min-width: ${breakpoints.med}) {
+      grid-template-columns: .5fr 1fr;
+      column-gap: 0;
+    }
+
+    input {
+      border-bottom: 1px solid gray;
+      width: 300px;
+      margin-top: auto;
+      padding-bottom: 2px;
+    }
+
+    label {
+      margin-top: auto;
+      text-align: left;
+      width: 100%;
+    }
+  }
+
+  // Buttons
   .primary-btn {
     background: #008255;
     padding: 10px;
     margin: 16px 0;
+    min-width: 150px;
   
     & a:link, & a:visited, & a:hover, & a:active {
       text-decoration: none;

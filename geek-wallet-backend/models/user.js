@@ -8,19 +8,24 @@ const articleSchema = new Schema({
 });
 
 const userSchema = new Schema({
-  username: {
+  name: {
     type: String,
-    unique: true,
-    trim: true,
-    minlength: 3
+    minlength: 3,
+    required: true,
   },
   email: {
     type: String,
     unique: true,
-    trim: true,    
+    trim: true,
+    required: true,
   },
-  birthDate: {
+  birthdate: {
     type: Date,
+    required: true,
+  },
+  admin: {
+    type: Boolean,
+    required: true,
   },
   articles: [ articleSchema ],
 },
