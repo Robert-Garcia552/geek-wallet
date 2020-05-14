@@ -23,6 +23,10 @@ const userSchema = new Schema({
     type: Date,
     required: true,
   },
+  password: {
+    type: String,
+    required: true,
+  },
   admin: {
     type: Boolean,
     required: true,

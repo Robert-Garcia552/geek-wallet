@@ -30,7 +30,7 @@ const SignUp = styled.form`
 
 const FormDiv = styled.div`
   margin: auto 0;
-`
+`;
 
 export default class SignUpComponent extends Component {
   constructor() {
@@ -38,7 +38,7 @@ export default class SignUpComponent extends Component {
     this.state = {
       name: "",
       email: "",
-      birthdate: "",
+      birthdate: null,
       password: ""
     }
   }
@@ -50,6 +50,24 @@ export default class SignUpComponent extends Component {
     this.setState({ [input]: value });
   }
 
+  postData = async (url = '', data = {}) => {
+    const response = await fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(data)
+    });
+    return response.json();
+  }
+
+  handleSubmit = () => {
+    console.log('STATE ------' + this.state);
+    this.postData('http://localhost:5000/users/add', this.state)
+      .then((data) => {
+        console.log(data);
+      }).catch((err) => {
+        console.log(err)
+      });
+  }
+
   render() {
     return(
       <div className='flex-container'>
@@ -59,7 +77,7 @@ export default class SignUpComponent extends Component {
           <img src={wallet} className='wallet' alt='wallet'/>
         </div>
         <FormDiv>
-          <SignUp action='http://localhost:5000/users/add' method='post'>
+          <SignUp>
             <label for='name'>Name</label>
             <input type='text' id='name' name='name' value={this.state.name} onChange={this.handleInput} required />
             <label for='email'>Email</label>
@@ -70,6 +88,8 @@ export default class SignUpComponent extends Component {
             <input type='password' id='password' name='password' onChange={this.handleInput} required />
             <PrimaryButton
               text='Submit'
+              href=''
+              handleSubmit={this.handleSubmit}
             />
           </SignUp>
           <a href='/'>Already Have an Account? Sign In</a>

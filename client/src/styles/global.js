@@ -126,7 +126,7 @@ export default createGlobalStyle`
     padding: 20px;
     display: none;
 
-    @media ${breakpoints.med} {
+    @media ${breakpoints.md} {
       display: block;
     }
   }
@@ -146,7 +146,7 @@ export default createGlobalStyle`
     margin: auto;
     padding-right: 10px;
 
-    @media ${breakpoints.med} {
+    @media ${breakpoints.md} {
       display: none;
     }
   }
@@ -188,7 +188,7 @@ export default createGlobalStyle`
   }
 
   .details-text {
-    @media ${breakpoints.med} {
+    @media ${breakpoints.md} {
       width: 40%;
       margin: auto 0;
     }
