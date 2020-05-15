@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import axios from 'axios';
 import wallet from '../assets/wallet.jpg';
 import PrimaryButton from './shared/PrimaryButtonComponent';
 import styled from 'styled-components';
+import Alert from './shared/AlertComponent';
 
 const SignUp = styled.form`
   display: grid;
@@ -36,64 +39,86 @@ export default class SignUpComponent extends Component {
   constructor() {
     super();
     this.state = {
-      name: "",
-      email: "",
+      name: null,
+      email: null,
       birthdate: null,
-      password: ""
+      password: null,
+      signedUp: false,
+      error: false,
+      errorMessage: '',
     }
   }
 
   handleInput = (e) => {
     let input = e.target.name;
-    let value = e.target.value;
+    let value = e.target.value;    
 
     this.setState({ [input]: value });
   }
 
-  postData = async (url = '', data = {}) => {
-    const response = await fetch(url, {
-      method: 'POST',
-      body: JSON.stringify(data)
-    });
-    return response.json();
-  }
-
-  handleSubmit = () => {
-    console.log('STATE ------' + this.state);
-    this.postData('http://localhost:5000/users/add', this.state)
-      .then((data) => {
-        console.log(data);
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const newUser = {
+      name: this.state.name,
+      email: this.state.email,
+      birthdate: this.state.birthdate,
+      password: this.state.password,
+    }
+    
+    axios.post('http://localhost:5000/users/add', newUser)
+      .then((res) => {
+        if(res.data.success) {
+          this.setState({ signedUp: true })
+        }
       }).catch((err) => {
-        console.log(err)
+        this.setState({ error: true, errorMessage: err.response.data.message });
       });
   }
 
+  handleClose = () => {
+    this.setState({ error: false});
+  }
+
   render() {
+    const error = <Alert 
+                    active={this.state.error}
+                    severity='error'
+                    handleClose={this.handleClose}
+                    message={this.state.errorMessage}
+                  />;
+
+    if(this.state.signedUp) {
+      return <Redirect to='/' />
+    }
+
     return(
-      <div className='flex-container'>
-        <div className='sign-up'>
-          <h2 className='header'>Sign Up</h2>
-          <p className='sub-header'>Let's leave the green where it should be</p>
-          <img src={wallet} className='wallet' alt='wallet'/>
+      <div>
+        {this.state.error ? error : false}
+        <div className='flex-container'>
+          <div className='sign-up'>
+            <h2 className='header'>Sign Up</h2>
+            <p className='sub-header'>Let's leave the green where it should be</p>
+            <img src={wallet} className='wallet' alt='wallet'/>
+          </div>
+          <FormDiv>
+            <SignUp>
+              <label for='name'>Name</label>
+              <input type='text' id='name' name='name' value={this.state.name} onChange={this.handleInput} required />
+              <label for='email'>Email</label>
+              <input type='email' id='email' name='email' value={this.state.email} onChange={this.handleInput} required />
+              <label for='birthdate'>Birthday</label>
+              <input type='date' id='birthdate' name='birthdate' value={this.state.birthdate} onChange={this.handleInput} required />
+              <label for='password'>Password</label>
+              <input type='password' id='password' name='password' onChange={this.handleInput} required />
+              <PrimaryButton
+                text='Submit'
+                href=''
+                handleSubmit={this.handleSubmit}
+              />
+            </SignUp>
+            <a href='/'>Already Have an Account? Sign In</a>
+          </FormDiv>
         </div>
-        <FormDiv>
-          <SignUp>
-            <label for='name'>Name</label>
-            <input type='text' id='name' name='name' value={this.state.name} onChange={this.handleInput} required />
-            <label for='email'>Email</label>
-            <input type='email' id='email' name='email' value={this.state.email} onChange={this.handleInput} required />
-            <label for='birthdate'>Birthday</label>
-            <input type='date' id='birthdate' name='birthdate' value={this.state.birthdate} onChange={this.handleInput} required />
-            <label for='password'>Password</label>
-            <input type='password' id='password' name='password' onChange={this.handleInput} required />
-            <PrimaryButton
-              text='Submit'
-              href=''
-              handleSubmit={this.handleSubmit}
-            />
-          </SignUp>
-          <a href='/'>Already Have an Account? Sign In</a>
-        </FormDiv>
       </div>
     )
   }

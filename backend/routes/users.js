@@ -18,7 +18,7 @@ router.route('/add').post((req, res) => {
     if(err) {
       console.log(err)
     }
-    
+
     const newUser = new User({
       name: user.name,
       email: user.email,
@@ -30,11 +30,18 @@ router.route('/add').post((req, res) => {
     newUser.save()
       .then((data) => {
         if(data) {
-          res.status(200).send({ message: 'Thanks for signing up!' }).redirect('http://localhost:3000/');
+          res.status(200).json({ success: true, message: 'Thanks for signing up!', redirectUrl: '/' });
         }
       })
       .catch(err => {
-        res.status(400).send({ error: 'Error: ' + err }).redirect('http://localhost:3000/sign-up');
+        let validations = ['name', 'email', 'birthdate', 'password']
+        let errors = validations.map((e) => {
+          if(err.errors[`${e}`].message) {
+            return err.errors[e].message
+          }
+        });
+        
+        res.status(400).send({ success: false, message: 'Error: ' + errors.join(', '), redirectUrl: '/sign-up' });
       });
   });
 });

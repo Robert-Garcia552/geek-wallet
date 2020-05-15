@@ -11,21 +11,21 @@ const userSchema = new Schema({
   name: {
     type: String,
     minlength: 3,
-    required: true,
+    required: [true, 'Name is required'],
   },
   email: {
     type: String,
     unique: true,
-    trim: true,
-    required: true,
+    trim: true, 
+    required: [true, 'Email is required'],
   },
   birthdate: {
     type: Date,
-    required: true,
+    required: [true, 'Birthday is required'],
   },
   password: {
     type: String,
-    required: true,
+    required: [true, 'Password is required'],
   },
   admin: {
     type: Boolean,
