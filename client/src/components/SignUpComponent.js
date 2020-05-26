@@ -97,7 +97,7 @@ export default class SignUpComponent extends Component {
         <div className='flex-container'>
           <div className='sign-up'>
             <h2 className='header'>Sign Up</h2>
-            <p className='sub-header'>Let's leave the green where it should be</p>
+            <p className='sub-header'>Let's start tracking movies today!</p>
             <img src={wallet} className='wallet' alt='wallet'/>
           </div>
           <FormDiv>

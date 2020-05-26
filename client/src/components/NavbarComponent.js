@@ -50,7 +50,7 @@ export default function Navbar() {
             </div>
           </Drawer>
           <img src={logo} className='nav-logo' alt='logo' />
-          <h1 className='nav-header'>Geek Wallet</h1>
+          <h1 className='nav-header'>Movie Chest</h1>
         </div>
       
         <div className='flex-container'>

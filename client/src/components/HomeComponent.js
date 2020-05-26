@@ -8,8 +8,8 @@ export default class HomeComponent extends Component {
     return (
       <div>
         <div className='container blue-background'>
-          <h2 className='header'>Make Smart Decisions With Your Wallet</h2>
-          <p className='sub-header'>Valuable information aimed to help you become a financial geek. Articles coming soon.</p>
+          <h2 className='header'>Keep Track of Watched Movies</h2>
+          <p className='sub-header'>Never forget a great film when you see one. Same for the bad flicks that you wish you didn't see.</p>
           <PrimaryButton 
             text='Get Started'
             href='/sign-up'
@@ -17,14 +17,14 @@ export default class HomeComponent extends Component {
         </div>
         <div className='flex-container details'>
           <div className='details-text'>
-            <p className='muted-text'>Free Articles</p>
-            <h3 className='header'>Learn about various financial principles</h3>
-            <p className='sub-header'>Find out what impacts your credit score, how to increase your savings, or about investment options.</p>
+            <p className='muted-text'>Movie Chest</p>
+            <h3 className='header'>Let's track movies today.</h3>
+            <p className='sub-header'>Favorite those great films and don't favorite those you don't want to ever watch again.</p>
             <Accordion 
               listItems={[
-                {'header': 'Increase Your Credit Score', 'detail': "Managing your credit score shouldn't be a mystery. Let's get you on the right track."},
-                {'header': 'Find the Best Credit Cards', 'detail': "Credit cards can be a headache to understand. Get the information you need to know if you're getting the right card."},
-                {'header': 'Implement a Savings Program', 'detail': "Savings are important as you don't know what will happen tomorrow. Find out how much you should have saved."}
+                {'header': 'Track Movies', 'detail': "Search for your movie and add it to your watched movie collection."},
+                {'header': 'Favorite Great Films', 'detail': "Never forget that great film ever again."},
+                {'header': 'Remember Bad Flicks', 'detail': "Don't rewatch that bad movie, unless you want to."}
               ]}
             />
           </div>
@@ -34,12 +34,12 @@ export default class HomeComponent extends Component {
         </div>
         <div className='flex-container cards'>
           <div className='blue-background card'>
-            <p className='card-header'>FAST TRACK TO FREEDOM</p>
-            <p className='card-text'>Refinancing your student loan may allow you to pay it off sooner.</p>
+            <p className='card-header'>FAST TRACK TO MOVIE GREATNESS</p>
+            <p className='card-text'>Relive watching a favorite by picking one you know is great.</p>
           </div>
           <div className='green-background card'>
             <p className='card-header'>NO QUESTION</p>
-            <p className='card-text'>Wondering "Will another outing break my budget?"</p>
+            <p className='card-text'>Wondering "Will another bad movie ruin my weekend?"</p>
           </div>
         </div>
       </div>

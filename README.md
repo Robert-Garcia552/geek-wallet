@@ -1,4 +1,4 @@
-## Geek Wallet
+## Movie Chest
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -8,7 +8,15 @@ Robert Garcia
 
 ### Purpose
 
-Creating a web-app for users to be able to understand financial products available to them and their pros/cons. This also allows me to gain experience using a modern tech stack MERN.
+Creating a web-app for users to be able to track movies they've seen. This also allows me to gain experience using a modern tech stack MERN.
+
+## Features
+
+Users will be able to:
+
+* Create an account
+* Sign In
+* Create Read Update Destroy a list of tracked movies
 
 ## Available Scripts
 
@@ -20,7 +28,7 @@ In the project directory, you can run:
 
 ### `yarn test`
 
-Work in progress
+Coming Soon
 
 ### `yarn build`
 
